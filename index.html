@@ -5,10 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English-for-kids</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div class="wrapper">
+        <header class="header">
+            <menu class="menu">
+                <div class="hamburger_open">
+                    <span class="hamburger__line"></span>
+                </div>
+                <ul class="navigation navigation_training">
+                    <div class="hamburger_close">
+                        <span class="hamburger__line"></span>
+                    </div>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  navigation__link_selected" data-link="mainPage">Main
+                            Page</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Action (Set A)">Action (set A)</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Action (Set B)">Action (set B)</a>
+                    </li>
 
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Action (Set C)">Action (set C)</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Adjective">Adjective</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Animal (Set A)">Animal (set A)</a>
+                    </li>
+
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Animal (Set B)">Animal (set B)</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Clothes">Clothes</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link  " data-link="Emotion">Emotion</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link " data-link="statistics">Statistics</a>
+                    </li>
+                </ul>
+
+            </menu>
+            <div class="controls">
+                <div class="controls__audio">
+                    <div class="sound__image">
+                        <img src="./assets/img/tools/volume1.png" width="35" height="35">
+                    </div>
+                    <div class="volume volume_hidden">
+                        <input type="range" value="5">
+                    </div>
+                </div>
+                <label class="switch"><input type="checkbox" id="togBtn">
+                    <div class="slider round"></div>
+                </label>
+            </div>
+
+        </header>
+        <main class="main">
+
+        </main>
+    </div>
+
+    <script src="./index.js" type="module"></script>
 </body>
 
 </html>
+
