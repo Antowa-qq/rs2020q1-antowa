@@ -25,11 +25,13 @@ export default class Card {
   }
 
   mouseLeaveCard(card) {
-    card.addEventListener('mouseleave', () => {
+    const mouseLeaveEvent = () => {
       if (card.classList.contains('card__game_flip')) {
         card.classList.remove('card__game_flip');
+        card.removeEventListener('mouseleave', mouseLeaveEvent);
       }
-    });
+    };
+    card.addEventListener('mouseleave', mouseLeaveEvent);
   }
 
   flipCardEvent(e) {
