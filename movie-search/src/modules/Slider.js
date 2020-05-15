@@ -6,7 +6,10 @@ export default class Slider {
     this.wrapperSwiper = document.querySelector('.swiper-wrapper');
     this.dots = document.querySelector('.swiper-pagination');
     this.swiper = this.initSwiper();
-    // this.init();
+    this.stateMyRating = {
+      likeActive: 'active-like',
+      dislikeActive: 'active-dislike'
+    }
   }
 
   addSlide(title, href, img, year, rating) {
@@ -38,10 +41,11 @@ export default class Slider {
     const myRatingFilm = document.createElement('div');
     myRatingFilm.classList.add('film__myRating');
     if (stateMyRating) {
-      if (stateMyRating === 'active-like') {
+      if (stateMyRating === this.stateMyRating.likeActive) {
         myRatingFilm.innerHTML = `<div class = "like icon-rating ${stateMyRating}"></div>`
           + '<div class = "dislike icon-rating"></div>';
-      } else {
+      }
+      if (stateMyRating === this.stateMyRating.dislikeActive) {
         myRatingFilm.innerHTML = '<div class = "like icon-rating"></div>'
           + `<div class = "dislike icon-rating ${stateMyRating}"></div>`;
       }
