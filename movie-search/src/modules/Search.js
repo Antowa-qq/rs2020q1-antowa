@@ -21,7 +21,7 @@ export default class Search {
     const translate = await translateSearch(title);
     const { result, totalResults } = await getMovies(translate, page);
 
-    return { result, totalResults };
+    return { result, totalResults, translate };
   }
 
   init() {

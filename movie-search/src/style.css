@@ -208,15 +208,20 @@ body {
   width: 150px;
 }
 
-.errorAPI {
+.msgAPI {
   text-align: center;
-  color: rgba(197, 0, 0, 0.726);
   margin-bottom: 30px;
   font-size: 2.2rem;
   overflow: hidden;
   height: 26px;
   width: 100%;
   letter-spacing: 1.2px;
+}
+.msgAPI.error {
+  color: rgba(197, 0, 0, 0.726);
+}
+.msgAPI.success {
+  color: rgb(1, 128, 1);
 }
 
 .film {

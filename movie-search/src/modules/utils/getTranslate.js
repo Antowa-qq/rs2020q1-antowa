@@ -1,4 +1,4 @@
-import Error from './Error';
+import Message from './Message';
 
 const translateSearch = async (text) => {
   try {
@@ -10,7 +10,7 @@ const translateSearch = async (text) => {
     const data = await res.json();
 
     if (!res.ok) {
-      Error.show('Что-то пошло не так');
+      Message.error('Что-то пошло не так');
       throw new Error(data.message || 'Что-то пошло не так');
     }
 

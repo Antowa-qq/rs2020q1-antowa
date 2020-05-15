@@ -2,6 +2,7 @@ import Slider from './Slider';
 import Search from './Search';
 import Keyboard from './Keyboard';
 import Validator from './utils/Validator';
+import Message from './utils/Message';
 
 export default class Controller {
   constructor() {
@@ -54,14 +55,16 @@ export default class Controller {
     event.preventDefault();
     this.keyboard.hiddenKeyboard();
     if (Validator.isEmpty(this.input)) {
-      const { result, totalResults } = await this.search
+      const { result, totalResults, translate } = await this.search
         .goSearch(this.input.value);
       if (result) {
+
         this.slider.removeAllSlides();
         this.slider.renderSlides(result);
         this.slider.goSlide(0);
         this.currentPage = 1;
         this.currentPageText = this.input.value;
+        Message.success(`Showing results for ${translate}`);
         this.slider.update();
         this.totalResultFilms = totalResults;
       }

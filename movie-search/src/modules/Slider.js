@@ -8,8 +8,8 @@ export default class Slider {
     this.swiper = this.initSwiper();
     this.stateMyRating = {
       likeActive: 'active-like',
-      dislikeActive: 'active-dislike'
-    }
+      dislikeActive: 'active-dislike',
+    };
   }
 
   addSlide(title, href, img, year, rating) {

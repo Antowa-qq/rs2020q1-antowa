@@ -1,8 +1,8 @@
 import Loader from './Loader';
-import Error from './Error';
+import Message from './Message';
 
 const getMovies = async (title, page = 1) => {
-  Error.clear();
+  Message.clear();
   try {
     const btn = document.querySelector('.search');
     btn.setAttribute('disabled', true);
@@ -29,12 +29,12 @@ const getMovies = async (title, page = 1) => {
       return { result, totalResults };
     }
 
-    Error.show(data.Error);
+    Message.error(data.Error);
     btn.removeAttribute('disabled');
     Loader.stop();
     return false;
   } catch (e) {
-    Error.show(e.message);
+    Message.error(e.message);
     Loader.stop();
     return false;
   }
