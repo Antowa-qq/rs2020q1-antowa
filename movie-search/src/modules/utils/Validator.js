@@ -5,7 +5,6 @@ export default class Validator {
     if (field.value.length > 0) {
       return true;
     }
-    Message.error('Enter the name of the movie!');
     return false;
   }
 }

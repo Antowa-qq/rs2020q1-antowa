@@ -69,6 +69,9 @@ export default class Controller {
         this.totalResultFilms = totalResults;
       }
     }
+    if (!Validator.isEmpty(this.input)) {
+      Message.error('Enter the name of the movie!');
+    }
   }
 
   async defaultSlides() {
