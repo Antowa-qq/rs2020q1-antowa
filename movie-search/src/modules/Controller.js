@@ -93,20 +93,22 @@ export default class Controller {
 
   likeDislikeHandler(event) {
     const card = event.target.closest('.film');
-    const idFilm = card.querySelector('.film__title a').href;
-    const parentLikeDilike = event.target.closest('.film__myRating');
-    const { target } = event;
-    if (target.classList.contains('like')) {
-      target.classList.add('active-like');
-      const dislike = parentLikeDilike.querySelector('.dislike');
-      dislike.classList.remove('active-dislike');
-      localStorage.setItem(idFilm, 'active-like');
-    }
-    if (target.classList.contains('dislike')) {
-      target.classList.add('active-dislike');
-      const like = parentLikeDilike.querySelector('.like');
-      like.classList.remove('active-like');
-      localStorage.setItem(idFilm, 'active-dislike');
+    if (card) {
+      const idFilm = card.querySelector('.film__title a').href;
+      const parentLikeDilike = event.target.closest('.film__myRating');
+      const { target } = event;
+      if (target.classList.contains('like')) {
+        target.classList.add('active-like');
+        const dislike = parentLikeDilike.querySelector('.dislike');
+        dislike.classList.remove('active-dislike');
+        localStorage.setItem(idFilm, 'active-like');
+      }
+      if (target.classList.contains('dislike')) {
+        target.classList.add('active-dislike');
+        const like = parentLikeDilike.querySelector('.like');
+        like.classList.remove('active-like');
+        localStorage.setItem(idFilm, 'active-dislike');
+      }
     }
   }
 
