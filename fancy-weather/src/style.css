@@ -1,13 +1,207 @@
 * {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+}
+.wrapper {
+  max-width: 1330px;
+  margin: 40px auto;
+}
+.button {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 6px;
+  border: none;
+  background: rgba(180, 184, 187, 0.7);
+  color: white;
+  display: flex;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: background-color 0.5s ease;
+}
+.button:hover {
+  background-color: #e9e9e9;
+  transition: background-color 0.5s ease;
+}
+.button.not-active {
+  background: rgba(76, 82, 85, 0.6);
+  color: hsla(0, 0%, 100%, 0.7);
+  cursor: pointer;
+}
+.button.not-active:hover {
+  background: rgba(136, 140, 143, 0.6);
+  color: white;
+}
+/* HEADER */
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  /* max-width: 100%; */
+}
+
+.cotrolsLeft {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: space-evenly;
+}
+.cotrolsLeft__update {
+  background: rgba(180, 184, 187, 0.7)
+    url(./assets/img/controls-header/update_background.svg) no-repeat bottom;
+  background-size: 4.4rem;
+}
+.cotrolsLeft__update .spinner {
+  width: 2.1rem;
+  height: 2.1rem;
+  background: url(./assets/img/controls-header/spinner.svg) 50% no-repeat;
+}
+
+.cotrolsLeft__update .spinner.animation {
+  animation: spin 1s ease;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cotrolsLeft__language .drop-menu-laguage {
+  width: 7.1rem;
+  position: relative;
+}
+.cotrolsLeft__language.open .drop-menu-laguage {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cotrolsLeft__language .drop-menu-laguage .arrow {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 8px;
+  background: url(./assets/img/controls-header/arrow.svg) 50% no-repeat;
+}
+.cotrolsLeft__language.open .drop-menu-laguage .arrow {
+  transform: rotate(180deg);
+}
+
+.cotrolsLeft__language.open .items-menu-language {
+  display: flex;
+}
+.cotrolsLeft__language .items-menu-language {
+  display: none;
+
+  position: absolute;
+  flex-direction: column;
+  height: 13.2rem;
+}
+
+.cotrolsLeft__language .item-menu-language {
+  border-radius: 0px 0px;
+  width: 7.1rem;
+  border-top: 0.6px solid whitesmoke;
+}
+.cotrolsLeft__language .item-menu-language:last-child {
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+}
+
+.cotrolsLeft__temperature {
+  display: flex;
+  flex-direction: row;
+}
+.cotrolsLeft__temperature .degrees {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cotrolsLeft__temperature .fahrenheit {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.cotrolsRight {
+  display: flex;
+  position: relative;
+  margin: 0 10px;
+  max-width: 355px;
+}
+.cotrolsRight__form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+}
+
+.cotrolsRight__form .button_search {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 10rem;
+}
+
+.cotrolsRight__form .input_search {
+  border: 0.06rem solid rgba(180, 184, 187);
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  background: rgba(76, 82, 85, 0.514);
+  padding: 8px 12% 8px 10px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: white;
+  width: 25.5rem;
+}
+.cotrolsRight__form .input_search::placeholder {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.cotrolsRight__form .button_search-voice {
+  /* display: block; */
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  width: 3rem;
+  height: 4rem;
+  border: none;
+  background: url(./assets/img/controls-header/microphone.svg) 50% no-repeat;
+  background-size: 50%;
+}
+
+/* MEDIA  */
+@media screen and (max-width: 645px) {
+  .foooter__wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .cotrolsLeft {
+    margin: 4rem 0 0;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .foooter__wrapper {
+    width: 100%;
   }
   html {
-    font-size: 10px;
+    font-size: 50%;
   }
-  body {
-    font-size: 1.6rem;
-    font-family: "Roboto", sans-serif;
-  }
-  
+}

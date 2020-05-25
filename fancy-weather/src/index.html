@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fancy-weather</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
     <link rel="shortcut icon" href="./assets/img/favicon/favicon.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+    <header>
+        <div class="wrapper header__wrapper">
+            <div class="cotrolsLeft">
+
+                <div class="button cotrolsLeft__update">
+                    <div class="spinner animation">
+                    </div>
+                </div>
+
+                <div class="cotrolsLeft__language open">
+                    <button class="button button_drop drop-menu-laguage">
+                        RU
+                        <span class="arrow"></span>
+                    </button>
+                    <div class="items-menu-language">
+                        <button class="button button_drop item-menu-language">RU</button>
+                        <button class="button button_drop item-menu-language not-active">EN</button>
+                        <button class="button button_drop item-menu-language not-active">BE</button>
+                    </div>
+                </div>
+
+                <div class="cotrolsLeft__temperature">
+                    <div class=" button degrees">
+                        °C
+                    </div>
+                    <div class=" button fahrenheit not-active">
+                        °F
+                    </div>
+                </div>
+            </div>
+            <div class="cotrolsRight">
+                <form action="#" class="cotrolsRight__form">
+                    <input class="input_search" type="text" name="" id="" placeholder="Найти город или индекс">
+                    <button class="button button_search">ПОИСК</button>
+                    <button class="button_search-voice"></button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper main__wrapper">
+
+        </div>
+    </main>
 </body>
+
 </html>
