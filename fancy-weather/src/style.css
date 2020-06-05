@@ -7,9 +7,36 @@ html {
   font-size: 10px;
 }
 body {
+  margin: 0 auto;
   font-size: 1.6rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  background-color: rgba(83, 88, 95, 0.9);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  transition: background-image 1s;
 }
+.wrapperResultsSearch::-webkit-scrollbar {
+  width: 0;
+}
+.wrapperResultsSearch {
+  overflow: -moz-scrollbars-none;
+}
+
+body.animate {
+  animation: next 1s ease;
+}
+@keyframes next {
+  from {
+    background-position-x: center, -100%, 0;
+  }
+  to {
+    background-position-x: center, 0, 100%;
+  }
+}
+
 .wrapper {
   max-width: 1330px;
   margin: 40px auto;
@@ -42,21 +69,59 @@ body {
   cursor: pointer;
 }
 .button.not-active:hover {
-  background: rgba(136, 140, 143, 0.6);
+  background: rgba(136, 140, 143, 0.753);
   color: white;
+}
+/* loader */
+.loader {
+  display: none;
+}
+
+.loader.animation {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(245, 245, 245, 0.5);
+  z-index: 80;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper__spinner {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader.animation svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: spin 2s linear 0s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 /* HEADER */
 
 .header__wrapper {
   display: flex;
   justify-content: space-between;
-  /* max-width: 100%; */
+  width: 100%;
 }
 
 .cotrolsLeft {
   display: flex;
   flex-direction: row;
-  width: 250px;
+  width: 294px;
   justify-content: space-evenly;
 }
 .cotrolsLeft__update {
@@ -70,7 +135,7 @@ body {
   background: url(./assets/img/controls-header/spinner.svg) 50% no-repeat;
 }
 
-.cotrolsLeft__update .spinner.animation {
+.cotrolsLeft__update.animation .spinner {
   animation: spin 1s ease;
 }
 @keyframes spin {
@@ -104,7 +169,6 @@ body {
 }
 .cotrolsLeft__language .items-menu-language {
   display: none;
-
   position: absolute;
   flex-direction: column;
   height: 13.2rem;
@@ -133,17 +197,62 @@ body {
   border-bottom-left-radius: 0;
 }
 
+.cotrolsLeft__sound img {
+  width: 50%;
+  height: 50%;
+}
+
 .cotrolsRight {
   display: flex;
   position: relative;
   margin: 0 10px;
-  max-width: 355px;
+  max-width: 400px;
 }
 .cotrolsRight__form {
   display: flex;
   flex-direction: row;
   width: 100%;
   position: relative;
+}
+.cotrolsRight.open .cotrolsRight__form .input_search {
+  border-bottom-left-radius: 0px;
+}
+.cotrolsRight.open .cotrolsRight__form .button_search {
+  border-bottom-right-radius: 0px;
+}
+.cotrolsRight.open .wrapperResultsSearch {
+  display: flex;
+  height: 132px;
+  width: 100%;
+  border: 0.06rem solid rgba(180, 184, 187);
+  background: rgba(76, 82, 85, 0.925);
+  border-radius: 0 0 0.6rem 0.6rem;
+  overflow-y: scroll;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  flex-direction: column;
+  z-index: 10;
+}
+.wrapperResultsSearch {
+  display: none;
+}
+.cotrolsRight .search-results .search-items {
+  display: flex;
+  position: relative;
+  border: 0.06rem solid rgba(180, 184, 187);
+  background: rgba(76, 82, 85, 0.925);
+  height: 4.4rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-top: none;
+  overflow: hidden;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.cotrolsRight .search-results .search-items:hover {
+  background: rgba(138, 140, 141, 0.39);
 }
 
 .cotrolsRight__form .button_search {
@@ -157,51 +266,285 @@ body {
   border-top-left-radius: 0.6rem;
   border-bottom-left-radius: 0.6rem;
   background: rgba(76, 82, 85, 0.514);
-  padding: 8px 12% 8px 10px;
+  padding: 8px 18% 8px 10px;
   outline: none;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   color: white;
-  width: 25.5rem;
+  width: 29.5rem;
 }
 .cotrolsRight__form .input_search::placeholder {
   color: white;
   font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
+  position: relative;
+  background: none;
 }
-
-.cotrolsRight__form .button_search-voice {
-  /* display: block; */
-  cursor: pointer;
+.cotrolsRight__form .button_close {
   position: absolute;
   top: 5%;
-  right: 30%;
+  right: 26.5%;
   width: 3rem;
   height: 4rem;
   border: none;
-  background: url(./assets/img/controls-header/microphone.svg) 50% no-repeat;
-  background-size: 50%;
+  background: rgba(255, 255, 255, 0);
+  outline: none;
+}
+.cotrolsRight__form .button_close svg {
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+  width: 72%;
+  height: 54%;
+  fill: rgba(255, 255, 255, 0.4);
+  transition: fill 0.5s ease;
+}
+
+.cotrolsRight__form .button_close svg:hover {
+  transition: fill 0.5s ease;
+  fill: rgba(255, 255, 255, 1);
+}
+
+.cotrolsRight__form .button_search-voice {
+  position: absolute;
+  top: 5%;
+  right: 34%;
+  width: 3rem;
+  height: 4rem;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  outline: none;
+}
+.cotrolsRight__form .button_search-voice svg {
+  cursor: pointer;
+  position: relative;
+  top: 8px;
+  width: 80%;
+  height: 60%;
+  fill: rgba(255, 255, 255, 0.4);
+  transition: fill 0.5s ease;
+}
+.cotrolsRight__form .button_search-voice.active svg {
+  fill: rgba(255, 255, 255, 1);
+}
+.cotrolsRight__form .button_search-voice svg:hover {
+  transition: fill 0.5s ease;
+  fill: rgba(255, 255, 255, 1);
+}
+.search-info {
+  color: rgba(255, 255, 255, 0.445);
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: center;
+}
+
+/* MAIN  */
+.main__wrapper {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+/* WEATHER INFO */
+.weather-data {
+  display: flex;
+  flex-direction: column;
+  width: 645px;
+  font-weight: 600;
+}
+.weather-data__location {
+  width: 100%;
+  font-size: 4.4rem;
+}
+.weather-data__date-time {
+  font-size: 2.2rem;
+  height: 2.8rem;
+}
+.forecasts-today {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.forecasts-today__info > :not(:first-child) {
+  margin-bottom: 10px;
+}
+.forecasts-today__temperature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 12rem;
+  width: 60%;
+}
+.forecasts-today__info {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.2rem;
+  width: 40%;
+}
+.weather-description {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.forecasts-today__info .icon_main {
+  width: 170px;
+  height: 170px;
+}
+.forecasts-today__info .icon_main img {
+  width: 100%;
+  height: 100%;
+}
+
+.weather-data__next-forecasts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.forecast {
+  display: flex;
+  flex-direction: column;
+}
+.forecast__temp-and-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-weather.icon_default {
+  text-align: center;
+  width: 70px;
+  height: 70px;
+}
+.forecast__day {
+  text-align: center;
+  font-size: 3rem;
+}
+.forecast__temperature {
+  font-size: 5rem;
+}
+/* MAP INFO */
+.map-data {
+  width: 395px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.map-data__wrapper {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  position: relative;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    99% 83%,
+    75% 83%,
+    75% 100%,
+    51% 83%,
+    0 83%
+  );
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.mapboxgl-ctrl {
+  display: none;
+}
+.mapboxgl-canvas {
+  width: 100%;
+  height: 100%;
+}
+.map-data__coordinates {
+  margin-top: 10px;
+  font-size: 2.2rem;
+  width: 100%;
+  text-align: right;
 }
 
 /* MEDIA  */
-@media screen and (max-width: 645px) {
-  .foooter__wrapper {
-    flex-direction: column-reverse;
+
+@media screen and (max-width: 1120px) {
+  .main__wrapper {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .cotrolsLeft {
-    margin: 4rem 0 0;
+  .weather-data {
+    width: 96%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .weather-data__location {
+    text-align: center;
+  }
+  .weather-data__next-forecasts {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+@media screen and (max-width: 830px) {
+  .header__wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .search-info {
+    margin: 10px 0;
+  }
+  .map-data {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .weather-data__next-forecasts {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .forecast {
+    margin-bottom: 10px;
   }
 }
 
-@media screen and (max-width: 380px) {
-  .foooter__wrapper {
-    width: 100%;
+@media screen and (max-width: 580px) {
+  .forecasts-today {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+}
+@media screen and (max-width: 430px) {
   html {
-    font-size: 50%;
+    font-size: 8px;
+  }
+  .forecasts-today__info {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .map-data {
+    width: 300px;
+  }
+  .map-data__wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  .map-data__coordinates {
+    text-align: center;
   }
 }

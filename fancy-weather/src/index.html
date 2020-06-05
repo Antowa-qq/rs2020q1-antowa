@@ -8,6 +8,7 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
     <link rel="shortcut icon" href="./assets/img/favicon/favicon.png" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,45 +17,183 @@
             <div class="cotrolsLeft">
 
                 <div class="button cotrolsLeft__update">
-                    <div class="spinner animation">
+                    <div class="spinner">
                     </div>
                 </div>
 
-                <div class="cotrolsLeft__language open">
-                    <button class="button button_drop drop-menu-laguage">
-                        RU
+                <div class="cotrolsLeft__language">
+                    <button class="button  drop-menu-laguage">
+                        <span class="current-language"></span>
                         <span class="arrow"></span>
                     </button>
                     <div class="items-menu-language">
-                        <button class="button button_drop item-menu-language">RU</button>
-                        <button class="button button_drop item-menu-language not-active">EN</button>
-                        <button class="button button_drop item-menu-language not-active">BE</button>
+                        <button class="button item-menu-language">RU</button>
+                        <button class="button item-menu-language">EN</button>
+                        <button class="button item-menu-language">BE</button>
                     </div>
                 </div>
 
                 <div class="cotrolsLeft__temperature">
-                    <div class=" button degrees">
+                    <div class=" button  degrees ">
                         °C
                     </div>
-                    <div class=" button fahrenheit not-active">
+                    <div class=" button  fahrenheit">
                         °F
                     </div>
                 </div>
+
+                <button class="button cotrolsLeft__sound not-active">
+                    <img src="./assets/img/controls-header/sound.svg">
+                </button>
+            </div>
+            <div class="search-info">
+
             </div>
             <div class="cotrolsRight">
-                <form action="#" class="cotrolsRight__form">
-                    <input class="input_search" type="text" name="" id="" placeholder="Найти город или индекс">
-                    <button class="button button_search">ПОИСК</button>
-                    <button class="button_search-voice"></button>
+                <form action="" class="cotrolsRight__form ">
+                    <input class="input_search" autocomplete="off" required type="text" name="sity_search">
+                    <button class="button button_search"></button>
+                    <div class="button_search-voice">
+                        <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.868 11.003c-.864 0-1.605-.263-2.224-.788-.62-.525-.93-1.148-.93-1.867V3.04c0-.746.31-1.375.93-1.887C6.263.64 7.004.385 7.868.385c.863 0 1.597.255 2.2.767.602.512.904 1.14.904 1.887v5.31c0 .718-.302 1.34-.904 1.866-.603.525-1.337.788-2.2.788zm5.5-2.655h1.808c0 1.494-.611 2.8-1.833 3.92s-2.697 1.79-4.424 2.012v2.903H6.817V14.28c-1.728-.221-3.202-.899-4.424-2.033C1.17 11.114.56 9.814.56 8.348h1.76c0 1.272.553 2.337 1.661 3.194 1.108.857 2.404 1.286 3.887 1.286s2.77-.429 3.862-1.286c1.091-.857 1.637-1.922 1.637-3.194z" />
+                        </svg>
+                    </div>
+                    <div class="button button_close">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492 492"
+                            style="enable-background:new 0 0 492 492;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                               c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                               c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                               L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                               c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                               c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                               c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z" />
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
                 </form>
+                <div class="wrapperResultsSearch">
+                    <div class="search-results">
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа</div>
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа фаыф а фы</div>
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа</div>
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа</div>
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа</div>
+                        <div class="search-items">Минск ыфв ра фыорафыа флыоа рфлыао рфылао рфа</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
     <main>
         <div class="wrapper main__wrapper">
+            <div class="weather-data">
+                <p class="weather-data__location">
 
+                </p>
+                <p class="weather-data__date-time">
+                </p>
+                <div class="forecasts-today">
+                    <div class="forecasts-today__temperature temp">
+                        <!-- 5 -->
+                        <!-- -92° -->
+                        <!-- <span class="circle">°</span> -->
+
+                    </div>
+                    <div class="forecasts-today__info">
+                        <p class="icon-weather icon_main">
+                            <img src="" alt="">
+                        </p>
+
+                        <p class="weather-description">
+                            <!-- Навальніца з сільным маросячым дождем -->
+                        </p>
+
+                        <p>
+                            <span class="weather-weather-feels-like-text"> </span>
+                            <span class="weather-feels-like temp"></span>
+
+                        </p>
+                        <p>
+                            <span class="weather-wind-text"></span>
+                            <span class="weather-wind"> </span>
+                            <span class="weather-wind-units"></span>
+                        </p>
+                        <p>
+                            <span class="weather-humidity-text"></span>
+                            <span class="weather-humidity"> </span>
+                            <!-- <span class="weather-humidity-text"></span> -->
+                        </p>
+                    </div>
+                </div>
+                <div class="weather-data__next-forecasts">
+                    <div class="forecast first">
+                        <p class="forecast__day"></p>
+                        <div class="forecast__temp-and-icon">
+                            <p class="forecast__temperature temp"></p>
+                            <p class="icon-weather icon_default">
+                                <img src="" alt="">
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="forecast second">
+                        <p class="forecast__day"></p>
+                        <div class="forecast__temp-and-icon">
+                            <p class="forecast__temperature temp"></p>
+                            <p class="icon-weather icon_default">
+                                <img src="" alt="">
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="forecast third">
+                        <p class="forecast__day"></p>
+                        <div class="forecast__temp-and-icon">
+                            <p class="forecast__temperature temp"></p>
+                            <p class="icon-weather icon_default">
+                                <img src="" alt="">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-data">
+                <div class="map-data__wrapper">
+                    <div id="map">
+
+                    </div>
+                </div>
+                <div class="map-data__coordinates">
+                    <p class="wrapper__latitude">
+                        <span class="text-latitude"></span>
+                        <span class="latitude"></span>
+                    </p>
+                    <p class="wrapper__longitude">
+                        <span class="text-longitude"></span>
+                        <span class="longitude"></span>
+                    </p>
+                </div>
+            </div>
         </div>
     </main>
+    <div class="loader">
+        <div class="wrapper__spinner">
+            <svg viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M.05 10.7a7.887 7.887 0 01.247-3.025c.887-3.139 3.671-5.447 6.974-5.488V.135c0-.114.138-.175.228-.106l4.072 3.103c.067.053.067.158 0 .207L7.503 6.442c-.094.069-.228.008-.228-.106V4.288c-2.172.037-4.025 1.425-4.822 3.387a5.63 5.63 0 00.75 5.566 1.076 1.076 0 01-.193 1.506.998.998 0 01-1.406-.203A7.675 7.675 0 01.05 10.7zm11.757-3.94a5.553 5.553 0 011.162 3.146 5.67 5.67 0 01-.412 2.419c-.797 1.962-2.65 3.355-4.822 3.387v-2.048c0-.114-.138-.175-.228-.106l-4.073 3.103c-.066.053-.066.159 0 .207l4.069 3.103c.094.069.228.008.228-.106v-2.052c3.302-.037 6.09-2.345 6.974-5.488a7.965 7.965 0 00.248-3.025A7.635 7.635 0 0013.4 5.456c-.345-.447-.962-.541-1.406-.203a1.079 1.079 0 00-.188 1.506z"
+                    fill="#fff" />
+            </svg>
+        </div>
+    </div>
 </body>
 
 </html>
