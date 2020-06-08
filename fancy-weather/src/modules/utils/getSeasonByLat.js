@@ -11,8 +11,6 @@ const getSeasonByLat = (lat) => {
     summer: 'summer',
     autumn: 'autumn',
   };
-  // Latitude > 0 - North
-    // Latitude < 0 - South
   const date = new Date();
   const n = date.getMonth();
   const isSouth = lat.includes('S');
